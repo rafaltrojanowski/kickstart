@@ -35,7 +35,7 @@ defmodule Kickstart.Blog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_post!(id), do: Repo.get!(Post, id)
+  def get_post!(slug), do: Repo.get_by!(Post, slug: slug)
 
   @doc """
   Creates a post.
