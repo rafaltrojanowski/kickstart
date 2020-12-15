@@ -1,5 +1,8 @@
 <ul class="navbar-nav navbar-right">
   <%= if @current_user do %>
+
+    <%= gravatar(@current_user.email) %>
+
     <li class="nav-item"><%= link @current_user.email, to: Routes.user_settings_path(@conn, :edit), class: "nav-link" %></li>
     <li class="nav-item"><%= link "Log out", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "nav-link" %></li>
   <% else %>
