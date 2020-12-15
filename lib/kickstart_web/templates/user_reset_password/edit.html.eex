@@ -7,16 +7,20 @@
     </div>
   <% end %>
 
-  <%= label f, :password, "New password" %>
-  <%= password_input f, :password, required: true %>
-  <%= error_tag f, :password %>
+  <div class="form-group"
+    <%= label f, :password, "New password" %>
+    <%= password_input f, :password, required: true, class: "form-control" %>
+    <%= error_tag f, :password %>
+  </div>
 
-  <%= label f, :password_confirmation, "Confirm new password" %>
-  <%= password_input f, :password_confirmation, required: true %>
-  <%= error_tag f, :password_confirmation %>
+  <div class="form-group"
+    <%= label f, :password_confirmation, "Confirm new password" %>
+    <%= password_input f, :password_confirmation, required: true, class: "form-control" %>
+    <%= error_tag f, :password_confirmation %>
+  </div>
 
   <div>
-    <%= submit "Reset password" %>
+    <%= submit "Reset password", class: "btn btn-primary" %>
   </div>
 <% end %>
 

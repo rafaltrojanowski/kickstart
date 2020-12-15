@@ -1,27 +1,28 @@
 <h1>Listing Posts</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-
-      <th></th>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-<%= for post <- @posts do %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.body %></td>
+    <%= for post <- @posts do %>
+        <tr>
+          <th scope="row"><%= post.id %></th>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
 
-      <td>
-        <span><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span>
-        <span><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span>
-        <span><%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
+          <td>
+            <span><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span>
+            <span><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span>
+            <span><%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %></span>
+          </td>
+        </tr>
+    <% end %>
   </tbody>
 </table>
 
