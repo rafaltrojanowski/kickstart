@@ -16,6 +16,11 @@ defmodule KickstartWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/admin", KickstartWeb.Admin, as: :admin do
+    pipe_through :browser
+    resources "/posts", PostController
+  end
+
   scope "/", KickstartWeb do
     pipe_through :browser
 
