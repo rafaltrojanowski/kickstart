@@ -6,6 +6,11 @@ defmodule Kickstart.Blog.Post do
     field :body, :string
     field :title, :string
     field :slug, :string
+    field :published_at, :naive_datetime
+    field :published, :boolean
+    field :views, :integer
+
+    belongs_to :user, Kickstart.Accounts.User
 
     timestamps()
   end
