@@ -1,8 +1,10 @@
 defmodule KickstartWeb.Admin.PostController do
   use KickstartWeb, :controller
 
+
   alias Kickstart.Blog
   alias Kickstart.Blog.Post
+  alias Kickstart.Accounts.User
   alias Kickstart.Repo
 
 
@@ -22,7 +24,8 @@ defmodule KickstartWeb.Admin.PostController do
 
   def new(conn, _params) do
     changeset = Blog.change_post(%Post{})
-    render(conn, "new.html", changeset: changeset)
+    users = Repo.all(User)
+    render(conn, "new.html", changeset: changeset, users: users)
   end
 
   def create(conn, %{"post" => post_params}) do
@@ -44,8 +47,9 @@ defmodule KickstartWeb.Admin.PostController do
 
   def edit(conn, %{"id" => id}) do
     post = Blog.get_post!(id)
+    users = Repo.all(User)
     changeset = Blog.change_post(post)
-    render(conn, "edit.html", post: post, changeset: changeset)
+    render(conn, "edit.html", post: post, changeset: changeset, users: users)
   end
 
   def update(conn, %{"id" => id, "post" => post_params}) do

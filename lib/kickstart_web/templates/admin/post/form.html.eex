@@ -9,7 +9,7 @@
 
     <div class="torch-form-group">
       <%= label f, :user_id %>
-      <%= number_input f, :user_id %>
+      <%= select f, :user_id, Enum.map(@users, &{&1.email, &1.id}) %>
       <%= error_tag f, :user_id %>
     </div>
 
@@ -35,12 +35,6 @@
       <%= label f, :published %>
       <%= checkbox f, :published %>
       <%= error_tag f, :published %>
-    </div>
-
-    <div class="torch-form-group">
-      <%= label f, :views %>
-      <%= number_input f, :views %>
-      <%= error_tag f, :views %>
     </div>
 
     <div class="torch-form-group">
