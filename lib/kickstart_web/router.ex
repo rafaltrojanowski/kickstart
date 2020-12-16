@@ -19,6 +19,8 @@ defmodule KickstartWeb.Router do
   scope "/admin", KickstartWeb.Admin, as: :admin do
     pipe_through :browser
     resources "/posts", PostController
+    resources "/users", UserController
+    resources "/", DashboardController
   end
 
   scope "/", KickstartWeb do
