@@ -4,9 +4,9 @@ defmodule KickstartWeb.Admin.UserController do
   alias Kickstart.Accounts
   alias Kickstart.Accounts.User
 
-  
-  plug(:put_root_layout, {KickstartWeb.LayoutView, "torch.html"})
-  
+
+  plug(:put_layout, {KickstartWeb.LayoutView, "torch.html"})
+
 
   def index(conn, params) do
     case Accounts.paginate_users(params) do

@@ -8,7 +8,7 @@ defmodule KickstartWeb.Admin.PostController do
   alias Kickstart.Repo
 
 
-  plug(:put_root_layout, {KickstartWeb.LayoutView, "torch.html"})
+  plug(:put_layout, {KickstartWeb.LayoutView, "torch.html"})
 
 
   def index(conn, params) do
