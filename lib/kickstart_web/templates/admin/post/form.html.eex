@@ -21,7 +21,7 @@
 
     <div class="torch-form-group">
       <%= label f, :body %>
-      <%= textarea f, :body %>
+      <%= textarea f, :body, rows: "20" %>
       <%= error_tag f, :body %>
     </div>
 

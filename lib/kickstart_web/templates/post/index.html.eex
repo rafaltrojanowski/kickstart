@@ -14,16 +14,12 @@
         <tr>
           <th scope="row"><%= post.id %></th>
           <td><%= post.title %></td>
-          <td><%= post.body %></td>
+          <td><%= truncate post.body %></td>
 
           <td>
             <span><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span>
-            <span><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span>
-            <span><%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %></span>
           </td>
         </tr>
     <% end %>
   </tbody>
 </table>
-
-<span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>

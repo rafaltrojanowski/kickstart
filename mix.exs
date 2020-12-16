@@ -20,7 +20,7 @@ defmodule Kickstart.MixProject do
   def application do
     [
       mod: {Kickstart.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :phoenix_html_simplified_helpers]
     ]
   end
 
@@ -47,7 +47,8 @@ defmodule Kickstart.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phx_gen_auth, "~> 0.6", only: [:dev], runtime: false},
-      {:torch, "~> 3.4"}
+      {:torch, "~> 3.4"},
+      {:phoenix_html_simplified_helpers, "~> 2.1.0"}
     ]
   end
 

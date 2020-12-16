@@ -8,44 +8,44 @@
     <section id="torch-filters">
       <h3>Find Posts</h3>
       <%= form_tag @conn.request_path, method: :get, id: "torch-filters-form" do %>
-        
+
           <div class="field">
             <label>Title</label>
             <%= filter_select(:post, :title, @conn.params) %>
             <%= filter_string_input(:post, :title, @conn.params) %>
           </div>
-        
+
           <div class="field">
             <label>Body</label>
             <%= filter_select(:post, :body, @conn.params) %>
             <%= filter_text_input(:post, :body, @conn.params) %>
           </div>
-        
+
           <div class="field">
             <label>Slug</label>
             <%= filter_select(:post, :slug, @conn.params) %>
             <%= filter_string_input(:post, :slug, @conn.params) %>
           </div>
-        
-        
+
+
           <div class="field">
             <label>Published</label>
             <%= filter_boolean_input(:post, :published, @conn.params) %>
           </div>
-        
-        
+
+
           <div class="field">
             <label>Published at</label>
             <%= filter_date_input(:post, :published_at, @conn.params) %>
           </div>
-        
-        
+
+
           <div class="field">
             <label>Views</label>
             <%= number_filter_select(:post, :views, @conn.params) %>
             <%= filter_number_input(:post, :views, @conn.params) %>
           </div>
-        
+
         <button type="submit" class="torch-button">Search</button>
         <%= link "Clear Filters", to: Routes.admin_post_path(@conn, :index) %>
       <% end %>
@@ -57,38 +57,38 @@
       <table>
         <thead>
           <tr>
-            
+
               <th><%= table_link(@conn, "Title", :title) %></th>
-            
+
               <th><%= table_link(@conn, "Body", :body) %></th>
-            
+
               <th><%= table_link(@conn, "Published at", :published_at) %></th>
-            
+
               <th><%= table_link(@conn, "Published", :published) %></th>
-            
+
               <th><%= table_link(@conn, "Views", :views) %></th>
-            
+
               <th><%= table_link(@conn, "Slug", :slug) %></th>
-            
+
             <th><span>Actions</span></th>
           </tr>
         </thead>
         <tbody>
           <%= for post <- @posts do %>
             <tr>
-              
+
                 <td><%= post.title %></td>
-              
-                <td><%= post.body %></td>
-              
+
+                <td><%= truncate post.body %></td>
+
                 <td><%= post.published_at %></td>
-              
+
                 <td><%= post.published %></td>
-              
+
                 <td><%= post.views %></td>
-              
+
                 <td><%= post.slug %></td>
-              
+
               <td class="torch-actions">
                 <span><%= link "Show", to: Routes.admin_post_path(@conn, :show, post) %></span>
                 <span><%= link "Edit", to: Routes.admin_post_path(@conn, :edit, post) %></span>
