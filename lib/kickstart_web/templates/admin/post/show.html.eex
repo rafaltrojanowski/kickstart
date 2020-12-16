@@ -11,37 +11,42 @@
       <h3>Post Details</h3>
     </div>
     <ul>
-      
+
         <li>
           <div class="torch-show-label">Title:</div>
           <div class="torch-show-data"><%= @post.title %></div>
         </li>
-      
+
         <li>
           <div class="torch-show-label">Body:</div>
           <div class="torch-show-data"><%= @post.body %></div>
         </li>
-      
+
+        <li>
+          <div class="torch-show-label">User:</div>
+          <div class="torch-show-data"><%= @post.user.email %></div>
+        </li>
+
         <li>
           <div class="torch-show-label">Published at:</div>
           <div class="torch-show-data"><%= @post.published_at %></div>
         </li>
-      
+
         <li>
           <div class="torch-show-label">Published:</div>
           <div class="torch-show-data"><%= @post.published %></div>
         </li>
-      
+
         <li>
           <div class="torch-show-label">Views:</div>
           <div class="torch-show-data"><%= @post.views %></div>
         </li>
-      
+
         <li>
           <div class="torch-show-label">Slug:</div>
           <div class="torch-show-data"><%= @post.slug %></div>
         </li>
-      
+
     </ul>
   </div>
 </section>

@@ -23,10 +23,10 @@
             </a>
           </div>
           <nav class="torch-nav">
-            <a href="posts">
+            <a href="/admin/posts">
               Posts
             </a>
-            <a href="users">
+            <a href="/admin/users">
               Users
             </a>
           </nav>

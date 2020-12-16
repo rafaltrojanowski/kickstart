@@ -3,10 +3,11 @@ defmodule KickstartWeb.Admin.PostController do
 
   alias Kickstart.Blog
   alias Kickstart.Blog.Post
+  alias Kickstart.Repo
 
-  
+
   plug(:put_root_layout, {KickstartWeb.LayoutView, "torch.html"})
-  
+
 
   def index(conn, params) do
     case Blog.paginate_posts(params) do
@@ -37,6 +38,7 @@ defmodule KickstartWeb.Admin.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Blog.get_post!(id)
+      |> Repo.preload(:user)
     render(conn, "show.html", post: post)
   end
 

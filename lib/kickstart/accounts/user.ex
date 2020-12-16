@@ -12,6 +12,16 @@ defmodule Kickstart.Accounts.User do
     timestamps()
   end
 
+  @doc false
+  def changeset(user, attrs) do
+    attrs = Map.merge(attrs, attrs)
+
+    user
+    |> cast(attrs, [:email, :password])
+    |> validate_required([:email, :password])
+    |> validate_password([])
+  end
+
   @doc """
   A user changeset for registration.
 

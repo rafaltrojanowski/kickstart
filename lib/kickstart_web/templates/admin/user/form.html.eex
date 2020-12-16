@@ -19,12 +19,6 @@
       <%= error_tag f, :password %>
     </div>
 
-    <div class="torch-form-group">
-      <%= label f, :confirmed_at %>
-      <%= datetime_select f, :confirmed_at %>
-      <%= error_tag f, :confirmed_at %>
-    </div>
-
     <div class="torch-submit-form">
       <%= submit "Submit", class: "torch-submit-button" %>
     </div>

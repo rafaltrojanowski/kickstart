@@ -20,8 +20,8 @@ defmodule Kickstart.Blog.Post do
     attrs = Map.merge(attrs, slugify_title(attrs))
 
     post
-    |> cast(attrs, [:title, :body, :slug])
-    |> validate_required([:title, :body])
+    |> cast(attrs, [:title, :body, :slug, :user_id, :published_at, :published, :views])
+    |> validate_required([:title, :body, :user_id])
   end
 
   defp slugify_title(%{"title" => title}) do
