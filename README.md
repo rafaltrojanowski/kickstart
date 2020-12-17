@@ -24,6 +24,22 @@ Admin Credentials:
 kickstart@admin.com:password1234
 ```
 
+## Social Login
+
+Create .env file in project root with Facebook and Google credentials:
+
+```
+export FACEBOOK_CLIENT_ID="XXX"
+export FACEBOOK_CLIENT_SECRET="XXX"
+export GOOGLE_CLIENT_ID="XXX"
+export GOOGLE_CLIENT_SECRET="XXX"
+```
+
+Run:
+```bash
+$ source .env
+```
+
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
 ## Features

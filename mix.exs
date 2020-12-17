@@ -48,7 +48,9 @@ defmodule Kickstart.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:phx_gen_auth, "~> 0.6", only: [:dev], runtime: false},
       {:torch, "~> 3.4"},
-      {:phoenix_html_simplified_helpers, "~> 2.1.0"}
+      {:phoenix_html_simplified_helpers, "~> 2.1.0"},
+      {:ueberauth_facebook, "~> 0.8"},
+      {:ueberauth_google, "~> 0.10"}
     ]
   end
 

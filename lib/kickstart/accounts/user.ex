@@ -9,6 +9,9 @@ defmodule Kickstart.Accounts.User do
     field :hashed_password, :string
     field :confirmed_at, :naive_datetime
     field :admin, :boolean
+    field :social_auth_uid, :string
+    field :avatar, :string
+    field :provider, :string
 
     timestamps()
   end
@@ -18,7 +21,7 @@ defmodule Kickstart.Accounts.User do
     attrs = Map.merge(attrs, attrs)
 
     user
-    |> cast(attrs, [:email, :password, :admin])
+    |> cast(attrs, [:email, :password, :admin, :social_auth_uid, :avatar, :provider])
     |> validate_required([:email, :password])
     |> validate_password([])
   end

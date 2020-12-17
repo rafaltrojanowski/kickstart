@@ -1,3 +1,7 @@
+### 2020-12-18
+
+* Social Login (Facebook, Google)
+
 ### 2020-12-17
 
 * Phoenix 1.5.7

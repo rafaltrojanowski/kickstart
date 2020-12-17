@@ -23,6 +23,13 @@ defmodule KickstartWeb.Router do
     resources "/", DashboardController
   end
 
+  scope "/auth", KickstartWeb do
+    pipe_through([:browser])
+    get("/:provider", SocialAuthController, :request)
+    get("/:provider/callback", SocialAuthController, :callback)
+    post("/:provider/callback", SocialAuthController, :callback)
+  end
+
   scope "/", KickstartWeb do
     pipe_through :browser
 

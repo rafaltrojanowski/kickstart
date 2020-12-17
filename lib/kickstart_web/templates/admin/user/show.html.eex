@@ -32,6 +32,21 @@
           <div class="torch-show-data"><%= @user.admin %></div>
         </li>
 
+        <li>
+          <div class="torch-show-label">Provider</div>
+          <div class="torch-show-data"><%= @user.provider %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Social auth uid</div>
+          <div class="torch-show-data"><%= @user.social_auth_uid %></div>
+        </li>
+
+        <li>
+          <div class="torch-show-label">Avatar</div>
+          <div class="torch-show-data"><%= @user.avatar %></div>
+        </li>
+
     </ul>
   </div>
 </section>
