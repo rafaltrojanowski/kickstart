@@ -18,7 +18,7 @@ defmodule Kickstart.Accounts.User do
     attrs = Map.merge(attrs, attrs)
 
     user
-    |> cast(attrs, [:email, :password])
+    |> cast(attrs, [:email, :password, :admin])
     |> validate_required([:email, :password])
     |> validate_password([])
   end

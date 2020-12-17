@@ -9,3 +9,10 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+# Create Admin User
+Kickstart.Accounts.create_user(%{
+  email: "kickstart1@admin.com",
+  password: "password1234",
+  admin: true
+})

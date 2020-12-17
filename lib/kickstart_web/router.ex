@@ -17,7 +17,7 @@ defmodule KickstartWeb.Router do
   end
 
   scope "/admin", KickstartWeb.Admin, as: :admin do
-    pipe_through [:browser, :require_authenticated_user]
+    pipe_through [:browser, :require_authenticated_admin]
     resources "/posts", PostController
     resources "/users", UserController
     resources "/", DashboardController

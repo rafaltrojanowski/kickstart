@@ -28,6 +28,11 @@
           </div>
 
 
+          <div class="field">
+            <label>Admin</label>
+            <%= filter_boolean_input(:user, :admin, @conn.params) %>
+          </div>
+
         <button type="submit" class="torch-button">Search</button>
         <%= link "Clear Filters", to: Routes.admin_user_path(@conn, :index) %>
       <% end %>
@@ -46,6 +51,8 @@
 
               <th><%= table_link(@conn, "Confirmed at", :confirmed_at) %></th>
 
+              <th><%= table_link(@conn, "Admin", :admin) %></th>
+
             <th><span>Actions</span></th>
           </tr>
         </thead>
@@ -58,6 +65,8 @@
                 <td><%= user.password %></td>
 
                 <td><%= user.confirmed_at %></td>
+
+                <td><%= user.admin %></td>
 
               <td class="torch-actions">
                 <span><%= link "Show", to: Routes.admin_user_path(@conn, :show, user) %></span>

@@ -27,6 +27,11 @@
           <div class="torch-show-data"><%= @user.confirmed_at %></div>
         </li>
 
+        <li>
+          <div class="torch-show-label">Admin</div>
+          <div class="torch-show-data"><%= @user.admin %></div>
+        </li>
+
     </ul>
   </div>
 </section>

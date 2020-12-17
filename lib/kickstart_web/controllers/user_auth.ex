@@ -139,6 +139,28 @@ defmodule KickstartWeb.UserAuth do
     end
   end
 
+  def require_authenticated_admin(conn, _opts) do
+    current_user = conn.assigns[:current_user]
+
+    if current_user do
+      if current_user.admin do
+        conn
+      else
+        conn
+        |> put_flash(:info, "You must have an Admin rights.")
+        |> maybe_store_return_to()
+        |> redirect(to: Routes.user_session_path(conn, :new))
+        |> halt()
+      end
+    else
+      conn
+      |> put_flash(:error, "You must log in to access this page.")
+      |> maybe_store_return_to()
+      |> redirect(to: Routes.user_session_path(conn, :new))
+      |> halt()
+    end
+  end
+
   defp maybe_store_return_to(%{method: "GET"} = conn) do
     put_session(conn, :user_return_to, current_path(conn))
   end

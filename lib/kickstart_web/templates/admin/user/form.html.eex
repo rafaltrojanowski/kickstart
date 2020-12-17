@@ -19,6 +19,12 @@
       <%= error_tag f, :password %>
     </div>
 
+    <div class="torch-form-group">
+      <%= label f, :admin %>
+      <%= checkbox f, :admin %>
+      <%= error_tag f, :admin %>
+    </div>
+
     <div class="torch-submit-form">
       <%= submit "Submit", class: "torch-submit-button" %>
     </div>
