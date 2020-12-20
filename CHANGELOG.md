@@ -1,6 +1,8 @@
 ### 2020-12-20
 
 * FontAwesome (free version)
+* Track Post's visits
+* Update Admin creds
 
 ### 2020-12-18
 

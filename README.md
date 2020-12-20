@@ -21,7 +21,7 @@ mix run priv/repo/seeds.exs
 
 Admin Credentials:
 ```
-kickstart@admin.com:password1234
+admin@kickstart.com:password1234
 ```
 
 ## Social Login

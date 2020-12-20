@@ -12,7 +12,7 @@
 
 # Create Admin User
 Kickstart.Accounts.create_user(%{
-  email: "kickstart@admin.com",
+  email: "admin@kickstart.com",
   password: "password1234",
   admin: true
 })
