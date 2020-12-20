@@ -1,9 +1,23 @@
 /* This file is for your main application css. */
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+/* Fontawesome 5 config */
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+// Font Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+/* Boostrap overrides */
 
 body {
   padding-top: 5rem;
 }
+
 .starter-template {
   padding: 3rem 1.5rem;
   text-align: center;

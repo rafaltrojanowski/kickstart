@@ -1,3 +1,7 @@
+### 2020-12-20
+
+* FontAwesome (free version)
+
 ### 2020-12-18
 
 * Social Login (Facebook, Google)
