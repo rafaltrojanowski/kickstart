@@ -1,4 +1,8 @@
-# Kickstart Phoenix Template
+👉 I've also built Phoenix Kickstart Pro which is a version of Kickstart that includes payments with Stripe, Subscriptions, Pricing Plans, and much more.
+
+Demo: https://kickstart-pro.herokuapp.com/
+
+# Phoenix Kickstart SaaS Template
 
 All your Phoenix apps should start with set of default features. It's like Jumpstart Rails, for Phoenix.
 
