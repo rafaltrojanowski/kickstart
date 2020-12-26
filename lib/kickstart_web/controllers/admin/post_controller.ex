@@ -29,13 +29,15 @@ defmodule KickstartWeb.Admin.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
+    users = Repo.all(User)
+
     case Blog.create_post(post_params) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :show, post))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, users: users)
     end
   end
 
@@ -54,6 +56,7 @@ defmodule KickstartWeb.Admin.PostController do
 
   def update(conn, %{"id" => id, "post" => post_params}) do
     post = Blog.get_post!(id)
+    users = Repo.all(User)
 
     case Blog.update_post(post, post_params) do
       {:ok, post} ->
@@ -61,7 +64,7 @@ defmodule KickstartWeb.Admin.PostController do
         |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :show, post))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", post: post, changeset: changeset)
+        render(conn, "edit.html", post: post, changeset: changeset, users: users)
     end
   end
 

@@ -12,11 +12,25 @@ defmodule Kickstart.AccountsFixtures do
       attrs
       |> Enum.into(%{
         email: unique_user_email(),
-        password: valid_user_password()
+        password: valid_user_password(),
       })
       |> Kickstart.Accounts.register_user()
 
     user
+  end
+
+  def admin_fixture(attrs \\ %{}) do
+    {:ok, admin} =
+      attrs
+      |> Enum.into(%{
+        email: unique_user_email(),
+        password: valid_user_password()
+      })
+      |> Kickstart.Accounts.register_user()
+
+    {:ok, admin} = Kickstart.Accounts.update_user(admin, %{admin: true, password: "password1234"})
+
+    admin
   end
 
   def extract_user_token(fun) do

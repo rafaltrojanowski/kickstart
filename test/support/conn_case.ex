@@ -61,7 +61,6 @@ defmodule KickstartWeb.ConnCase do
   """
   def log_in_user(conn, user) do
     token = Kickstart.Accounts.generate_user_session_token(user)
-
     conn
     |> Phoenix.ConnTest.init_test_session(%{})
     |> Plug.Conn.put_session(:user_token, token)
