@@ -1,3 +1,7 @@
+### 2020-12-27
+
+* Fixed failing tests
+
 ### 2020-12-20
 
 * FontAwesome (free version)
