@@ -11,7 +11,7 @@ defmodule Kickstart.BlogTest do
     @update_attrs %{body: "some updated body", title: "some updated title", slug: "updated-slug"}
     @invalid_attrs %{body: nil, title: nil, slug: nil}
 
-    def user_fixture(attrs \\ %{}) do
+    def user_fixture(_attrs \\ %{}) do
       {:ok, user} =
         %{email: "test@user.com", password: "password1234"}
         |> Accounts.create_user()
@@ -19,7 +19,7 @@ defmodule Kickstart.BlogTest do
     end
 
     def post_fixture(attrs \\ %{}) do
-      user = user_fixture
+      user = user_fixture()
       {:ok, post} =
         attrs
         |> Enum.into(Map.merge(@valid_attrs, %{user_id: user.id}))
@@ -39,7 +39,7 @@ defmodule Kickstart.BlogTest do
     end
 
     test "create_post/1 with valid data creates a post" do
-      user = user_fixture
+      user = user_fixture()
       assert {:ok, %Post{} = post} = Blog.create_post(Map.merge(@valid_attrs, %{user_id: user.id}))
       assert post.body == "some body"
       assert post.title == "some title"
