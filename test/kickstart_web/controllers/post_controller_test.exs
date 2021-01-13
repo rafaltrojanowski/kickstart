@@ -4,6 +4,7 @@ defmodule KickstartWeb.PostControllerTest do
   alias Kickstart.Blog
 
   @create_attrs %{body: "some body", title: "some title", slug: "test-slug"}
+
   # @update_attrs %{body: "some updated body", title: "some updated title", slug: "updated-test-slug"}
   # @invalid_attrs %{body: nil, title: nil, slug: nil}
 

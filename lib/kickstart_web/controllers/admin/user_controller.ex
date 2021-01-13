@@ -4,14 +4,13 @@ defmodule KickstartWeb.Admin.UserController do
   alias Kickstart.Accounts
   alias Kickstart.Accounts.User
 
-
   plug(:put_layout, {KickstartWeb.LayoutView, "torch.html"})
-
 
   def index(conn, params) do
     case Accounts.paginate_users(params) do
       {:ok, assigns} ->
         render(conn, "index.html", assigns)
+
       error ->
         conn
         |> put_flash(:error, "There was an error rendering Users. #{inspect(error)}")
@@ -30,6 +29,7 @@ defmodule KickstartWeb.Admin.UserController do
         conn
         |> put_flash(:info, "User created successfully.")
         |> redirect(to: Routes.admin_user_path(conn, :show, user))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -54,6 +54,7 @@ defmodule KickstartWeb.Admin.UserController do
         conn
         |> put_flash(:info, "User updated successfully.")
         |> redirect(to: Routes.admin_user_path(conn, :show, user))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
     end

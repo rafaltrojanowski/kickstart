@@ -102,7 +102,6 @@ defmodule Kickstart.Blog do
     Post.changeset(post, attrs)
   end
 
-
   # Torch code below
   import Torch.Helpers, only: [sort: 1, paginate: 4]
   import Filtrex.Type.Config
@@ -132,19 +131,18 @@ defmodule Kickstart.Blog do
     {:ok, sort_field} = Map.fetch(params, "sort_field")
 
     with {:ok, filter} <- Filtrex.parse_params(filter_config(:posts), params["post"] || %{}),
-        %Scrivener.Page{} = page <- do_paginate_posts(filter, params) do
+         %Scrivener.Page{} = page <- do_paginate_posts(filter, params) do
       {:ok,
-        %{
-          posts: page.entries,
-          page_number: page.page_number,
-          page_size: page.page_size,
-          total_pages: page.total_pages,
-          total_entries: page.total_entries,
-          distance: @pagination_distance,
-          sort_field: sort_field,
-          sort_direction: sort_direction
-        }
-      }
+       %{
+         posts: page.entries,
+         page_number: page.page_number,
+         page_size: page.page_size,
+         total_pages: page.total_pages,
+         total_entries: page.total_entries,
+         distance: @pagination_distance,
+         sort_field: sort_field,
+         sort_direction: sort_direction
+       }}
     else
       {:error, error} -> {:error, error}
       error -> {:error, error}
@@ -160,10 +158,10 @@ defmodule Kickstart.Blog do
 
   defp filter_config(:posts) do
     defconfig do
-      date :published_at
-      text :title
-      text :body
-      number :visits
+      date(:published_at)
+      text(:title)
+      text(:body)
+      number(:visits)
     end
   end
 end

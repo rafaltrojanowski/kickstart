@@ -2,7 +2,8 @@ defmodule KickstartWeb.LayoutView do
   use KickstartWeb, :view
 
   def gravatar(email) do
-    hash = email
+    hash =
+      email
       |> String.trim()
       |> String.downcase()
       |> :erlang.md5()

@@ -27,9 +27,10 @@ defmodule Kickstart.Blog.Post do
   defp slugify_title(%{"title" => title}) do
     slug =
       title
-      |> String.downcase
+      |> String.downcase()
       |> String.replace(~r/[^a-z0-9\s-]/, "")
       |> String.replace(~r/(\s|-)+/, "-")
+
     %{"slug" => slug}
   end
 
@@ -40,6 +41,6 @@ end
 
 defimpl Phoenix.Param, for: Kickstart.Blog.Post do
   def to_param(%{slug: slug}) do
-  "#{slug}"
+    "#{slug}"
   end
 end

@@ -1,20 +1,18 @@
 defmodule KickstartWeb.Admin.PostController do
   use KickstartWeb, :controller
 
-
   alias Kickstart.Blog
   alias Kickstart.Blog.Post
   alias Kickstart.Accounts.User
   alias Kickstart.Repo
 
-
   plug(:put_layout, {KickstartWeb.LayoutView, "torch.html"})
-
 
   def index(conn, params) do
     case Blog.paginate_posts(params) do
       {:ok, assigns} ->
         render(conn, "index.html", assigns)
+
       error ->
         conn
         |> put_flash(:error, "There was an error rendering Posts. #{inspect(error)}")
@@ -36,14 +34,17 @@ defmodule KickstartWeb.Admin.PostController do
         conn
         |> put_flash(:info, "Post created successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :show, post))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset, users: users)
     end
   end
 
   def show(conn, %{"id" => id}) do
-    post = Blog.get_post!(id)
+    post =
+      Blog.get_post!(id)
       |> Repo.preload(:user)
+
     render(conn, "show.html", post: post)
   end
 
@@ -63,6 +64,7 @@ defmodule KickstartWeb.Admin.PostController do
         conn
         |> put_flash(:info, "Post updated successfully.")
         |> redirect(to: Routes.admin_post_path(conn, :show, post))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", post: post, changeset: changeset, users: users)
     end

@@ -7,7 +7,6 @@ defmodule Kickstart.Accounts do
   alias Kickstart.Repo
   alias Kickstart.Accounts.{User, UserToken, UserNotifier}
 
-
   @doc """
   Returns the list of users.
 
@@ -101,7 +100,6 @@ defmodule Kickstart.Accounts do
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
   end
-
 
   ## Database getters
 
@@ -479,7 +477,7 @@ defmodule Kickstart.Accounts do
 
   defp basic_info(auth) do
     email = email_from_auth(auth)
-    random_password = Ecto.UUID.generate |> binary_part(16,12)
+    random_password = Ecto.UUID.generate() |> binary_part(16, 12)
 
     case auth.strategy do
       Ueberauth.Strategy.Facebook ->
@@ -549,19 +547,18 @@ defmodule Kickstart.Accounts do
     {:ok, sort_field} = Map.fetch(params, "sort_field")
 
     with {:ok, filter} <- Filtrex.parse_params(filter_config(:users), params["user"] || %{}),
-        %Scrivener.Page{} = page <- do_paginate_users(filter, params) do
+         %Scrivener.Page{} = page <- do_paginate_users(filter, params) do
       {:ok,
-        %{
-          users: page.entries,
-          page_number: page.page_number,
-          page_size: page.page_size,
-          total_pages: page.total_pages,
-          total_entries: page.total_entries,
-          distance: @pagination_distance,
-          sort_field: sort_field,
-          sort_direction: sort_direction
-        }
-      }
+       %{
+         users: page.entries,
+         page_number: page.page_number,
+         page_size: page.page_size,
+         total_pages: page.total_pages,
+         total_entries: page.total_entries,
+         distance: @pagination_distance,
+         sort_field: sort_field,
+         sort_direction: sort_direction
+       }}
     else
       {:error, error} -> {:error, error}
       error -> {:error, error}
@@ -577,8 +574,8 @@ defmodule Kickstart.Accounts do
 
   defp filter_config(:users) do
     defconfig do
-      date :confirmed_at
-      text :email
+      date(:confirmed_at)
+      text(:email)
     end
   end
 end

@@ -15,6 +15,7 @@ defmodule KickstartWeb.SocialAuthController do
     case Kickstart.Accounts.find_or_create(auth) do
       {:ok, user} ->
         UserAuth.log_in_user(conn, user)
+
       {:error, reason} ->
         conn
         |> put_flash(:error, reason)

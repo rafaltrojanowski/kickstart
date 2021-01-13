@@ -12,7 +12,7 @@ defmodule Kickstart.AccountsFixtures do
       attrs
       |> Enum.into(%{
         email: unique_user_email(),
-        password: valid_user_password(),
+        password: valid_user_password()
       })
       |> Kickstart.Accounts.register_user()
 

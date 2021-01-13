@@ -28,16 +28,17 @@ config :torch,
   otp_app: :kickstart,
   template_format: "eex" || "slime"
 
-
 # Configures Social Login
 config :ueberauth, Ueberauth,
   providers: [
     facebook: {Ueberauth.Strategy.Facebook, [default_scope: "email,public_profile"]},
     google: {Ueberauth.Strategy.Google, [default_scope: "email profile"]}
-]
+  ]
+
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
   client_id: System.get_env("FACEBOOK_CLIENT_ID"),
   client_secret: System.get_env("FACEBOOK_CLIENT_SECRET")
+
 config :ueberauth, Ueberauth.Strategy.Google.OAuth,
   client_id: System.get_env("GOOGLE_CLIENT_ID"),
   client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
