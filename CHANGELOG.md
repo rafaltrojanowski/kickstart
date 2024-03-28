@@ -1,8 +1,8 @@
 ### 2021-01-13
-Pricing Plans (PRO)
-Stripe Payments (PRO)
-Subscriptions (PRO)
-Faq (PRO)
+* Pricing Plans (PRO)
+* Stripe Payments (PRO)
+* Subscriptions (PRO)
+* Faq (PRO)
 
 ### 2020-12-27
 
